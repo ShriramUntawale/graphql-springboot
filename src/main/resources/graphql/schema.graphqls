@@ -1,0 +1,20 @@
+type Player{
+    id :ID!,
+    name :String,
+    team : Team
+}
+
+enum Team {
+    MI, DC, RCB, CSK, KKR, RR, SRH, PBKS, GT, KXIP
+}
+
+type Query {
+    getAllPlayers1 :[Player]
+    getPlayerById(id :ID) :Player
+    getPlayersByTeam(team :Team): [Player]
+}
+
+type Mutation{
+    addPlayer(name: String, team: Team): Player
+    deletePlayer(id: ID): Boolean
+}
